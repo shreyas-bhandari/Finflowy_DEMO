@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, LogOut, ChevronLeft, ChevronRight } from 'lucide-react'
+import { LayoutDashboard, LogOut, ChevronLeft, ChevronRight, Receipt } from 'lucide-react'
 import { useAuthStore } from '@/store/useAuthStore'
 import { cn } from '@/lib/utils'
 
@@ -11,6 +10,7 @@ interface SidebarProps {
 
 const navItems = [
   { path: '/', name: 'Dashboard', icon: LayoutDashboard },
+  { path: '/transactions', name: 'Transactions', icon: Receipt },
 ]
 
 export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {

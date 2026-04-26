@@ -14,7 +14,7 @@ export default function Register() {
   const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async () => {
     setIsLoading(true)
     setTimeout(() => {
       toast.success('Account created successfully!')

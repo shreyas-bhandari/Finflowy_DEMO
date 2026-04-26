@@ -5,7 +5,7 @@ import {
 } from 'recharts'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card'
 import { useFinanceStore } from '@/store/useFinanceStore'
-import { TrendingUp, TrendingDown, DollarSign, Wallet, ArrowUpRight, ArrowDownRight, Sparkles } from 'lucide-react'
+import { TrendingUp, TrendingDown, DollarSign, Wallet, Sparkles } from 'lucide-react'
 
 const COLORS = ['#8b5cf6', '#a855f7', '#d946ef', '#ec4899', '#f43f5e', '#f97316']
 
@@ -64,10 +64,10 @@ export default function Dashboard() {
   }, [transactions])
 
   const statsCards = [
-    { title: "Total Balance", amount: `$${balance.toLocaleString(undefined, {minimumFractionDigits: 2})}`, icon: Wallet, trend: "Live", positive: balance >= 0 },
-    { title: "Total Income", amount: `$${totalIncome.toLocaleString(undefined, {minimumFractionDigits: 2})}`, icon: TrendingUp, trend: "Live", positive: true },
-    { title: "Total Expense", amount: `$${totalExpense.toLocaleString(undefined, {minimumFractionDigits: 2})}`, icon: TrendingDown, trend: "Live", positive: false },
-    { title: "Savings Rate", amount: `${savingsRate.toFixed(1)}%`, icon: DollarSign, trend: "Live", positive: savingsRate > 0 }
+    { title: "Total Balance", amount: `₹${balance.toLocaleString(undefined, {minimumFractionDigits: 2})}`, icon: Wallet, trend: "Live", positive: balance >= 0 },
+    { title: "Total Income", amount: `₹${totalIncome.toLocaleString(undefined, {minimumFractionDigits: 2})}`, icon: TrendingUp, trend: "Live", positive: true },
+    { title: "Total Expense", amount: `₹${totalExpense.toLocaleString(undefined, {minimumFractionDigits: 2})}`, icon: TrendingDown, trend: "Live", positive: false },
+    { title: "Savings Rate", amount: `₹${savingsRate.toFixed(1)}%`, icon: DollarSign, trend: "Live", positive: savingsRate > 0 }
   ]
 
   return (
@@ -142,7 +142,7 @@ export default function Dashboard() {
                       dataKey="value"
                       stroke="none"
                     >
-                      {pieData.map((entry, index) => (
+                      {pieData.map((_, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>
